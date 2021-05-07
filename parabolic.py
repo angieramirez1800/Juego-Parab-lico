@@ -55,9 +55,12 @@ def move():
 
     draw()
 
-    for target in targets:
-        if not inside(target):
-            return
+    for i in range(len(targets)):  # Itera sobre la lista de targets
+        if not inside(targets[i]):  # Verifica si el target se ha salido de la ventana
+            y = targets[i].y  # En caso afirmativo, copia la coordenada y
+            # Finalmente reubica el target en la posicion más a la derecha
+            targets[i] = vector(200, y)
+            # El juego nunca termina al no existir return
 
     ontimer(move, 50)
 

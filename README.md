@@ -4,6 +4,7 @@ Actividad 3, semana TEC
 Originalmente el juego lo que hacía era: 
 
   *Lanzar la pelota y poner los targets a baja velocidad
+  
   *El juego tenía tiempo limitado
   
 Los cambios que hicimos fueron: 

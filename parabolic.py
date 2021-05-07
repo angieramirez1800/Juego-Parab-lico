@@ -11,7 +11,7 @@ speed = vector(0, 0)  # Velocidad inicial
 targets = []  # Al inicio no hay targets
 
 
-def tap(x, y): 
+def tap(x, y):
     """
     Responde a que los clicks sea hacia donde apunta la bola roja
     x = Posición en eje x
@@ -23,7 +23,7 @@ def tap(x, y):
         ball.y = -199
         # Aumenta la velocidad
         speed.x = (x + 200) / 10  # Antes dividía entre 25
-        speed.y = (y + 200) / 10  # Antes dividía entre 25 
+        speed.y = (y + 200) / 10  # Antes dividía entre 25
 
 
 def inside(xy):
@@ -46,7 +46,7 @@ def draw():
 
     if inside(ball):  # La pelota se encuentra dentro de la ventana
         goto(ball.x, ball.y)  # Se mueve a la posición de la pelota
-        dot(6, 'red') # Crea un punto en la posición de la pelota
+        dot(6, 'red')  # Crea un punto en la posición de la pelota
 
     update()  # Reflejar los cambios realizados
 
@@ -84,7 +84,8 @@ def move():
     draw()
 
     for i in range(len(targets)):  # Itera sobre la lista de targets
-        if not inside(targets[i]):  # Verifica si el target se ha salido de la ventana
+        # Verifica si el target se ha salido de la ventana
+        if not inside(targets[i]):
             y = targets[i].y  # En caso afirmativo, copia la coordenada y
             # Finalmente reubica el target en la posicion más a la derecha
             targets[i] = vector(200, y)

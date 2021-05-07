@@ -6,13 +6,16 @@ ball = vector(-200, -200)
 speed = vector(0, 0)
 targets = []
 
-def tap(x, y):
-    "Respond to screen tap."
-    if not inside(ball):
-        ball.x = -199
-        ball.y = -199
-        speed.x = (x + 200) / 25
-        speed.y = (y + 200) / 25
+def tap(x, y): 
+    """
+Responde a que los clicks sea hacia donde apunta la bola roja
+
+"""
+    if not inside(ball): # Regula la velocidad de la bola
+        ball.x = -199  # Estaba en -199
+        ball.y = -199  # Estaba en -199
+        speed.x = (x + 200) / 10 # Antes dividía entre 25 
+        speed.y = (y + 200) / 10 # Antes dividía entre 25  
 
 def inside(xy):
     "Return True if xy within screen."
@@ -40,10 +43,10 @@ def move():
         targets.append(target)
 
     for target in targets:
-        target.x -= 0.5
+        target.x -= 2.5 # estaba en 0.5
 
     if inside(ball):
-        speed.y -= 0.35
+        speed.y -= 1 # estaba en 0.35
         ball.move(speed)
 
     dupe = targets.copy()
@@ -67,4 +70,5 @@ up()
 tracer(False)
 onscreenclick(tap)
 move()
+
 done()
